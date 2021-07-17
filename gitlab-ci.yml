@@ -1,0 +1,16 @@
+image: python:latest
+
+before_script:
+  - python -v
+  - pip3 install awscli
+  - apt update -y
+  - apt upgrade -y
+
+test:
+  script:
+    - ls -all | egrep "**.py"
+
+run:
+  script:
+    - aws configure set aws_access_key_id "$AWS_KEY"  &&  aws_secret_access_key "$AWS_SECRET"  && aws configure set region "$AWS_REGION"  && aws configure set output "text"
+    - aws s3 cp index.html s3://$S3_BUCKET/
