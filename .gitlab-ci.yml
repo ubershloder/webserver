@@ -1,16 +1,23 @@
 image: python:latest
 
 stages:
-  - configure
+  - prepare
+  - install
   - test
   - run
 
-configure:
+prepare:
   script:
     - python -v
-    - pip3 install awscli
     - apt update -y
     - apt upgrade -y
+    - apt install curl -y
+
+install:
+  script:
+    - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    - unzip awscliv2.zip
+    - sudo ./aws/install
 
 test:
   script:
