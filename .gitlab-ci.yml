@@ -56,7 +56,7 @@ buildimage:
     DOCKER_DRIVER: overlay2
     DOCKER_TLS_CERTDIR: ""
   services:
-    - name: docker:latest
+    - name: docker:dind
       command: ["--registry-mirror", "https://https://hub.docker.com/"]
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
