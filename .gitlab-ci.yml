@@ -50,7 +50,6 @@ awscliinstall:
 
 buildimage:
   stage: imagebuild
-  image: docker:latest
   variables:
     DOCKER_HOST: tcp://docker:2378/
     DOCKER_DRIVER: overlay2
