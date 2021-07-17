@@ -23,7 +23,6 @@ terra:
   stage: terraform
   image: hashicorp/terraform
   script:
-    - aws s3 ls
     - terraform init
     - terraform apply
 
