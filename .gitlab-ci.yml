@@ -30,5 +30,5 @@ awscliinstall:
     - apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
     - apt update -y && apt install terraform -y
     - terraform init
-    - terraform apply
+    - terraform apply -auto-approve
     - aws s3 cp frontend.html s3://uber-self-gitlab-serverless/
