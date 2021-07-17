@@ -23,5 +23,5 @@ awscliinstall:
   stage: install
   script:
     - aws s3 ls
-    - ls -all
-    - aws s3 cp index.html s3://$S3_BUCKET/
+    - ls -all | egrep "**.py"
+    - aws s3 cp frontend.py s3://$S3_BUCKET/
