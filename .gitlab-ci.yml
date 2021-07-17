@@ -22,7 +22,7 @@ linting:
     expire_in: 30 days
   script:
     - pip install pylint
-    - pylint frontend.py > lint.log
+    - pylint webserver.py > lint.log
 
 testfile:
   stage: test
