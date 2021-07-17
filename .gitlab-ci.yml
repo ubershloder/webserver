@@ -25,8 +25,8 @@ linting:
   script:
     - pwd
     - pip install pylint
-    - ls -all
     - pylint webserver.py > lint.log
+    - ls -all
 
 testfile:
   stage: test
