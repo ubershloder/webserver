@@ -1,20 +1,6 @@
-data "aws_ami" "ubuntu" {
-  most_recent = true
 
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"]
-}
 resource "aws_instance" "exp" {
-  ami                         = data.aws_ami.ubuntu.id
+  ami                         = "ami-05f7491af5eef733a"
   instance_type               = "t2.micro"
   key_name                    = "random"
   associate_public_ip_address = true
