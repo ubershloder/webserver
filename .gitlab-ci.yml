@@ -19,7 +19,7 @@ linting:
   stage: lint
   artifacts:
     paths:
-      - "/builds/root/python/"
+      - "/builds/root/python/*"
   allow_failure: true
   script:
     - pwd
