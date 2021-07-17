@@ -19,8 +19,8 @@ linting:
   stage: lint
   allow_failure: true
   artifacts:
-    untracked: true
-    expire_in: 30 days
+    paths:
+      - ./
   script:
     - pip install pylint
     - ls -all
