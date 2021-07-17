@@ -1,6 +1,11 @@
 image: python:latest
 
-before_script:
+stages:
+  - configure
+  - test
+  - run
+
+configure:
   - python -v
   - pip3 install awscli
   - apt update -y
