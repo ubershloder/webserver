@@ -27,6 +27,7 @@ linting:
 testfile:
   stage: test
   script:
+    - pwd
     - ls -all | egrep "**.py"
     - ls -all | egrep "**.log"
 
