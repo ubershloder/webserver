@@ -2,7 +2,7 @@
 # Name:        webserver
 # Purpose:
 #
-# Author:      jduyon
+# Author:      jduy
 #
 # Created:     29/04/2014
 # Copyright:   (c) jduyon 2014
