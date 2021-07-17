@@ -1,13 +1,8 @@
-#-------------------------------------------------------------------------------
-# Name:        webserver
+# -------------------------------------------------------------------------------
 # Purpose:
 #
-# Author:      jduy
-#
-# Created:     29/04/2014
-# Copyright:   (c) jduyon 2014
-# Licence:     <your licence>
-#-------------------------------------------------------------------------------
+
+# -------------------------------------------------------------------------------
 
 import threading
 import webbrowser
@@ -39,6 +34,7 @@ def open_browser():
     thread = threading.Timer(0.5, _open_browser)
     thread.start()
 
+
 def start_server():
     """Start the server."""
     server_address = ("", PORT)
@@ -47,6 +43,7 @@ def start_server():
         server.serve_forever()
     except(KeyboardInterrupt):
         pass
+
 
 if __name__ == "__main__":
     open_browser()
