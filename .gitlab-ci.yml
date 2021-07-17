@@ -20,9 +20,9 @@ linting:
   artifacts:
     untracked: true
     expire_in: 30 days
-    script:
-      - pip install pylint
-      - pylint frontend.py > lint.log
+  script:
+    - pip install pylint
+    - pylint frontend.py > lint.log
 
 testfile:
   stage: test
@@ -45,10 +45,10 @@ awscliinstall:
 
 buildimage:
   stage: imagebuild
-image: docker:19.03.13
-script: 
-  - docker -v 
-  - docker image build . -t ubersholder/cidocker:1
-  - docker image ls
-  - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
-  - docker push ubersholder/cidocker:1
+  image: docker:19.03.13
+  script:
+    - docker -v
+    - docker image build . -t ubersholder/cidocker:1
+    - docker image ls
+    - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
+    - docker push ubersholder/cidocker:1
