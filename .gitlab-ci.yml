@@ -18,10 +18,8 @@ linting:
   image: python:latest
   stage: lint
   allow_failure: true
-  artifacts:
-    paths:
-      - ./
   script:
+    - pwd
     - pip install pylint
     - ls -all
     - pylint webserver.py > lint.log
