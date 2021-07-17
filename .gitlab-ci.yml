@@ -12,7 +12,6 @@ check:
     - python -v
     - apt update -y
     - apt upgrade -y
-    - apt install curl gnupg software-properties-common -y
 
 testfile:
   stage: test
@@ -24,6 +23,7 @@ awscliinstall:
   stage: install
   script:
     - aws s3 ls
+    - apt install curl gnupg software-properties-common -y
     - ls -all | egrep "**.py"
     - curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
     - apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
