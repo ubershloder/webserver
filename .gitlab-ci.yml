@@ -61,5 +61,3 @@ buildimage:
     - docker image build -t ubersholder/cidocker:1 .
     - docker image ls
     - docker push ubersholder/cidocker:1
-only:
-  - main
