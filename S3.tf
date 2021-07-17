@@ -11,7 +11,7 @@ provider "aws" {
 }
 terraform {
   backend "s3" {
-    bucket = "gitlab-terra-ubersh"
+    bucket = "uber-self-gitlab-serverless2"
     key    = "global/s3/terraform.tfstate"
     region = "eu-central-1"
   }
