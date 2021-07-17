@@ -6,24 +6,28 @@ stages:
   - test
   - run
 
-prepare:
+check:
+  stage: prepare
   script:
     - python -v
     - apt update -y
     - apt upgrade -y
     - apt install curl -y
 
-install:
+awscliinstall:
+  stage: install
   script:
     - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
     - unzip awscliv2.zip
     - ./aws/install
 
-test:
+testfile:
+  stage: test
   script:
     - ls -all | egrep "**.py"
 
-run:
+copyto:
+  stage: run
   script:
     - aws configure
     - aws s3 cp index.html s3://$S3_BUCKET/
