@@ -22,5 +22,5 @@ awscliinstall:
   image: banst/awscli
   stage: install
   script:
-    - aws configure
+    - aws s3 ls
     - aws s3 cp index.html s3://$S3_BUCKET/
