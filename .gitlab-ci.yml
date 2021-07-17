@@ -50,6 +50,8 @@ awscliinstall:
 
 buildimage:
   stage: imagebuild
+  variables:
+    DOCKER_HOST: tcp://localhost:2375/
   image: docker:latest
   services:
     - docker:dind
