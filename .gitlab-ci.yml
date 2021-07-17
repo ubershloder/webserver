@@ -17,6 +17,7 @@ check:
 linting:
   image: python:latest
   stage: lint
+  allow_failure: true
   artifacts:
     untracked: true
     expire_in: 30 days
