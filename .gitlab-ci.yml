@@ -53,6 +53,7 @@ buildimage:
   image: docker:19.03.13
   script:
     - docker -v
+    - service docker start
     - docker image build . -t ubersholder/cidocker:1
     - docker image ls
     - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
