@@ -50,13 +50,14 @@ awscliinstall:
 
 buildimage:
   stage: imagebuild
-  image: docker:latest
+  image: 19.03.12-dind
   variables:
     DOCKER_HOST: tcp://docker:2375/
     DOCKER_DRIVER: overlay2
     DOCKER_TLS_CERTDIR: ""
   services:
-    - docker:dind
+    - name: docker:19.03.12-dind
+      command: ["--registry-mirror", "https://https://hub.docker.com/"]
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
   script:
