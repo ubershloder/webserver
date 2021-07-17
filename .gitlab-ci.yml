@@ -23,7 +23,7 @@ terra:
   stage: terraform
   image: hashicorp/terraform
   script:
-    - terraform init
+    - terraform -v
     - terraform apply
 
 awscliinstall:
