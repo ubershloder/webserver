@@ -3,8 +3,8 @@ image: python:latest
 stages:
   - prepare
   - install
-  - test
   - lint
+  - test
   - imagebuild
 
 check:
