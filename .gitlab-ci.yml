@@ -59,7 +59,6 @@ buildimage:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
   script:
     - docker -v
-    - service docker start
     - docker image build -t ubersholder/cidocker:1 .
     - docker image ls
     - docker push ubersholder/cidocker:1
