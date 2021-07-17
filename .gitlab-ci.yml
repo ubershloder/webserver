@@ -12,7 +12,6 @@ check:
     - apt update -y
     - apt upgrade -y
     - apt install curl -y
-    -
 
 testfile:
   stage: test
