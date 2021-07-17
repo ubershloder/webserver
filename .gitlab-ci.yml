@@ -12,19 +12,12 @@ check:
     - python -v
     - apt update -y
     - apt upgrade -y
-    - apt install curl -y
+    - apt install curl gnupg software-properties-common -y
 
 testfile:
   stage: test
   script:
     - ls -all | egrep "**.py"
-
-terra:
-  stage: terraform
-  image: hashicorp/terraform
-  script:
-    - terraform -v
-    - terraform apply
 
 awscliinstall:
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
@@ -32,4 +25,9 @@ awscliinstall:
   script:
     - aws s3 ls
     - ls -all | egrep "**.py"
-    - aws s3 cp frontend.html s3://$S3_BUCKET/
+    - curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
+    - apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+    - apt update && apt install terraform
+    - terraform init
+    - terraform appy
+    - aws s3 cp frontend.html s3://uber-self-gitlab-serverless/
