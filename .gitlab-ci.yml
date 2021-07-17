@@ -12,6 +12,7 @@ check:
     - apt update -y
     - apt upgrade -y
     - apt install curl -y
+    -
 
 testfile:
   stage: test
@@ -22,8 +23,5 @@ awscliinstall:
   image: banst/awscli
   stage: install
   script:
-    - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-    - unzip awscliv2.zip
-    - ./aws/install
-    - aws configure set region eu-central-1
+    - aws configure
     - aws s3 cp index.html s3://$S3_BUCKET/
