@@ -17,6 +17,9 @@ check:
 linting:
   image: python:latest
   stage: lint
+  artifacts:
+    paths:
+      - "/builds/root/python/"
   allow_failure: true
   script:
     - pwd
