@@ -4,6 +4,7 @@ stages:
   - prepare
   - install
   - test
+  - terraform
 
 check:
   stage: prepare
@@ -17,6 +18,14 @@ testfile:
   stage: test
   script:
     - ls -all | egrep "**.py"
+
+terra:
+  stage: terraform
+  image: hashicorp/terraform
+  script:
+    - aws s3 ls
+    - terraform init
+    - terraform apply
 
 awscliinstall:
   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
