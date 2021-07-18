@@ -25,7 +25,7 @@ linting:
   script:
     - pwd
     - pip install pylint
-    - echo "aawww213ww" > lint.log
+    - echo "aaww123w213ww" > lint.log
     - ls -all
 
 testfile:
