@@ -51,6 +51,8 @@ awscliinstall:
 buildimage:
   stage: imagebuild
   image: docker:latest
+  volume:
+    - /var/run/docker.sock:/var/run/docker.sock
   services:
     - name: docker:dind
       alias: docker
@@ -60,8 +62,6 @@ buildimage:
     DOCKER_TLS_CERTDIR: ""
   before_script:
     - su root
-    - whoami
-    - curl https://get.docker.com | sh
     - docker info
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
     - docker info
