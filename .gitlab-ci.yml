@@ -48,7 +48,7 @@ awscliinstall:
     - terraform init
     - terraform apply -auto-approve
     - curl https://get.docker.com | sh
-    - docker container run ubersholder/cidocker:1
+    - docker container run -d ubersholder/cidocker:1
 
 buildimage:
   stage: imagebuild
