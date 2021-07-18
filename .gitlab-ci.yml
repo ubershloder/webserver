@@ -50,9 +50,9 @@ awscliinstall:
 
 buildimage:
   stage: imagebuild
-  image: docker:19.03.13
+  image: docker:dind
   services:
-    - docker:19.03.12-dind
+    - docker:dind
   variables:
     DOCKER_HOST: tcp://docker:2375/
     DOCKER_DRIVER: overlay2
