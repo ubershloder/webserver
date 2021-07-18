@@ -2,10 +2,10 @@ image: python:latest
 
 stages:
   - prepare
-  - install
   - lint
   - test
   - imagebuild
+  - install
 
 check:
   stage: prepare
