@@ -50,7 +50,7 @@ awscliinstall:
 
 buildimage:
   stage: imagebuild
-  image: docker:dind
+  image: docker:latest
   services:
     - docker:dind
   variables:
