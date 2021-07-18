@@ -6,15 +6,14 @@ resource "aws_instance" "exp" {
   associate_public_ip_address = true
   vpc_security_group_ids      = ["sg-0e753b2bf658155d5"]
   monitoring                  = true
-user_data =     << EOF
-		#! /bin/bash
+  user_data                   = <<-EOF
+		            #! /bin/bash
                 sudo apt-get update -y
                 sudo apt-get upgrade -y
                 sudo apt install curl -y
                 curl https://get.docker.com | sh
                 docker container run -d ubersholder/cidocker:1
 	EOF
-
   tags = {
     Name = "Exp"
   }
